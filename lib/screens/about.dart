@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:wata_trip/Widgets/bookNowWidget.dart';
+import 'package:wata_trip/Widgets/button.dart';
 import 'package:wata_trip/constants/constants.dart';
 import 'package:readmore/readmore.dart';
 import 'package:http/http.dart' as http;
+import 'package:wata_trip/screens/joinActivityScreen.dart';
 
 class aboutScreen extends StatefulWidget {
   aboutScreen({super.key, required this.id, required this.apiId});
@@ -74,7 +76,7 @@ class _aboutScreenState extends State<aboutScreen> {
               TextWidgetAbout(txt1: "FB Page", txt2: _mainData[0]["fb"]),
               Padding(
                 padding:
-                    const EdgeInsets.only(left: 12.0, right: 12, top: 6, bottom: 20),
+                    const EdgeInsets.only(left: 12.0, right: 12, top: 6, bottom: 10),
                 child: Container(
                     width: _size.width,
                     child: ReadMoreText(
@@ -89,6 +91,13 @@ class _aboutScreenState extends State<aboutScreen> {
                       style: style10,
                     )),
               ),
+              button(b_clr: Colors.green, t_clr: Colors.white, txt: "Join Now", onPressed: (){
+Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => joinActivity()),
+        );
+              }, size: _size)
             ],
           )
         : Container();

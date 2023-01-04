@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wata_trip/screens/activityScreen.dart';
-import 'package:wata_trip/screens/homeScreen.dart';
-import 'package:wata_trip/screens/tourDetails.dart';
 
 import '../Constants/constants.dart';
 import '../screens/MainScreen.dart';
