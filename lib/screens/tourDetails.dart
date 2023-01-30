@@ -67,6 +67,7 @@ class _tourDetailsState extends State<tourDetails> {
   int _imgNo = 1;
   @override
   Widget build(BuildContext context) {
+    print(id);
     Size _size = MediaQuery.of(context).size;
 
     return _state
@@ -76,10 +77,16 @@ class _tourDetailsState extends State<tourDetails> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:8.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Container(
-                  width: _size.width*0.9,
-                  child: Flexible(child: Text(_mainData[0]["name"],overflow: TextOverflow.ellipsis,maxLines: 2,style: style8,))),
+                    width: _size.width * 0.9,
+                    child: Flexible(
+                        child: Text(
+                      _mainData[0]["name"],
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: style8,
+                    ))),
               ),
               Material(
                 borderRadius: BorderRadius.circular(10),
@@ -89,7 +96,7 @@ class _tourDetailsState extends State<tourDetails> {
                     child: Image.network(
                       _mainData[0]["image$_imgNo"],
                       height: _size.height * 0.25,
-                      width: _size.width*0.8,
+                      width: _size.width * 0.8,
                       fit: BoxFit.fill,
                     )),
               ),
@@ -97,8 +104,8 @@ class _tourDetailsState extends State<tourDetails> {
                 size: _size,
                 id: id,
                 apiId: apiId,
+                aid: _mainData[0]["id"].toString(),
               ),
-              
             ],
           ))
         : Center(

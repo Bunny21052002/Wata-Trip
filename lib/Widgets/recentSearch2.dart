@@ -1,12 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:wata_trip/Constants/constants.dart';
-import 'package:wata_trip/Widgets/recentSearch.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:wata_trip/utils/Lists.dart';
-
 
 class RecentSearch extends StatefulWidget {
   const RecentSearch({
@@ -41,50 +38,67 @@ class _RecentSearchState extends State<RecentSearch> {
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
 
-    return _state ? Padding(
-      padding: const EdgeInsets.symmetric(vertical:18.0, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Text(
-                  
-                  "Hello, "+ email,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: style8,
+    return _state
+        ? Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "Hello, " + email,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: style8,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.search),
+                      iconSize: 35,
+                    )
+                  ],
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.search),
-                iconSize: 35,
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10),
-            child: Text(
-              "Recent Searches",
-              style: style9,
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 10),
+                  child: Text(
+                    "Recent Searches",
+                    style: style9,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                rsList.length == 0
+                    ? Container(
+                        width: _size.width,
+                        child: Center(
+                            child: Text(
+                          "Plan Some thing!",
+                          style: style8,
+                        )),
+                      )
+                    : Container(
+                        width: _size.width,
+                        height: _size.height * 0.22,
+                        child: Expanded(
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: rsList.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (BuildContext context, int index) {
+                                return rsList[index];
+                              }),
+                        ),
+                      ),
+              ],
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-                  width: _size.width,
-
-                  child: Center(child: Text("Plan Some thing!", style: style8,)),
-                ),
-                
-        ],
-      ),
-    ):Container();
+          )
+        : Container();
   }
 }

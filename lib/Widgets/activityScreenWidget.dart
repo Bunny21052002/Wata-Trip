@@ -156,13 +156,7 @@ class _activityScreenWidgetState extends State<activityScreenWidget> {
                             style: style15,
                           ),
                         ],
-                      ),
-                      button3(
-                          b_clr: Colors.green,
-                          t_clr: Colors.white,
-                          txt: "Book",
-                          onPressed: () {},
-                          size: size)
+                      ),                 
                     ],
                   ),
                 )

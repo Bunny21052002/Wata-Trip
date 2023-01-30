@@ -6,21 +6,23 @@ import 'package:wata_trip/screens/reviews.dart';
 import '../constants/constants.dart';
 
 class navBar extends StatefulWidget {
-  navBar({super.key, required this.size, required this.id, required this.apiId});
+  navBar({super.key, required this.size, required this.id, required this.apiId,required this.aid});
   Size size;
   int id;
+  String aid;
   String apiId;
 
   @override
-  State<navBar> createState() => _navBarState(size: size, id: id,apiId: apiId);
+  State<navBar> createState() => _navBarState(size: size, id: id,apiId: apiId, aid: aid);
 }
 
 class _navBarState extends State<navBar> {
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = aboutScreen(id: 0,apiId: "0");
-  _navBarState({required this.size, required this.id, required this.apiId});
+  Widget currentScreen = aboutScreen(id: 0,apiId: "0",aid:"0" );
+  _navBarState({required this.size, required this.id, required this.apiId, required this.aid});
   bool _state = false;
   int id;
+  String aid;
   bool _sel1 = true;
   bool _sel2 = false;
   bool _sel3 = false;
@@ -32,6 +34,7 @@ class _navBarState extends State<navBar> {
     
     if (_state == false) {
       currentScreen = aboutScreen(
+        aid: aid.toString(),
         apiId: apiId,
         id: id,
       );
@@ -53,6 +56,7 @@ class _navBarState extends State<navBar> {
                     _sel3 = false;
                     _sel2 = false;
                     currentScreen = aboutScreen(
+                      aid:aid ,
                       apiId: apiId,
                       id: id,
                     );

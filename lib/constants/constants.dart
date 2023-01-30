@@ -15,7 +15,7 @@ TextStyle style12 =
 
    
 TextStyle style13 =
-    GoogleFonts.openSans(fontWeight: FontWeight.w600, fontSize: 18, color:Colors.purple.shade900);
+    GoogleFonts.openSans(fontWeight: FontWeight.w500, fontSize: 14, color:Color(0xFF007AFF));
     TextStyle style14 =
     GoogleFonts.openSans(fontWeight: FontWeight.w400, fontSize: 12, color:Colors.purple.shade900);
 
@@ -24,7 +24,7 @@ TextStyle style13 =
     GoogleFonts.openSans(fontWeight: FontWeight.w400, fontSize: 15, color:Colors.grey);
 
 TextStyle style1 =
-    GoogleFonts.roboto(fontSize: 33, fontWeight: FontWeight.w400);
+    GoogleFonts.roboto(fontSize: 30, fontWeight: FontWeight.w400);
 TextStyle style2 =
     GoogleFonts.roboto(fontSize: 23, fontWeight: FontWeight.w300);
 TextStyle style3 =
@@ -37,3 +37,7 @@ TextStyle style6 = GoogleFonts.roboto(
     fontSize: 15, fontWeight: FontWeight.w400);
 TextStyle style7 = GoogleFonts.roboto(
     fontSize: 12, fontWeight: FontWeight.w300);
+TextStyle style16 = GoogleFonts.roboto(
+    fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black);
+    TextStyle style17 = GoogleFonts.roboto(
+    fontSize: 23, fontWeight: FontWeight.w500, color: Colors.black);

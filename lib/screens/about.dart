@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:wata_trip/Widgets/bookNowWidget.dart';
+
 import 'package:wata_trip/Widgets/button.dart';
 import 'package:wata_trip/constants/constants.dart';
 import 'package:readmore/readmore.dart';
@@ -9,18 +9,20 @@ import 'package:http/http.dart' as http;
 import 'package:wata_trip/screens/joinActivityScreen.dart';
 
 class aboutScreen extends StatefulWidget {
-  aboutScreen({super.key, required this.id, required this.apiId});
+  aboutScreen({super.key, required this.id, required this.apiId, required this.aid});
   String apiId;
+  String aid;
   int id;
 
   @override
-  State<aboutScreen> createState() => _aboutScreenState(id: id, apiId: apiId);
+  State<aboutScreen> createState() => _aboutScreenState(id: id, apiId: apiId,aid: aid);
 }
 
 class _aboutScreenState extends State<aboutScreen> {
   bool _state = false;
   String apiId;
-  _aboutScreenState({required this.id, required this.apiId});
+  String aid;
+  _aboutScreenState({required this.id, required this.apiId, required this.aid});
   @override
   void initState() {
     getData();
@@ -95,9 +97,10 @@ class _aboutScreenState extends State<aboutScreen> {
 Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => joinActivity()),
+              builder: (context) => joinActivity(aid:aid, name: _mainData[0]["name"],Date: "26/02/2022",Location: _mainData[0]["address"],)),
         );
-              }, size: _size)
+              }, size: _size),
+              SizedBox(height: 30,)
             ],
           )
         : Container();
